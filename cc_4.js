@@ -27,3 +27,42 @@ for (let product of products) {
             break;
     }
 }
+let customerType = "student";
+let customerDiscount = 0;
+
+if (customerType === "student") {
+    customerDiscount = 0.05;
+}
+else if (customerType === "senior") {
+    customerDiscount = 0.07;
+}
+
+for (let customer = 1; customer <= 3; customer++) {
+
+    let total = 0;
+
+    for (let product of products) {
+
+        if (product.inventory > 0) {
+            total += product.discountedPrice;
+            product.inventory--;
+        }
+    }
+
+    total = total * (1 - customerDiscount);
+
+    console.log(`Customer ${customer} Total Cost: $${total.toFixed(2)}`);
+}
+
+for (let key in products[0]) {
+    console.log(`${key}: ${products[0][key]}`);
+}
+
+for (let product of products) {
+
+    for (let [key, value] of Object.entries(product)) {
+        console.log(`${key}: ${value}`);
+    }
+
+    console.log("----------------");
+}
