@@ -5,3 +5,25 @@ let products = [
     { name: "Detergent", category: "household", price: 12, inventory: 25 },
     { name: "Book", category: "other", price: 20, inventory: 15 }
 ];
+for (let product of products) {
+
+    switch (product.category) {
+
+        case "electronics":
+            product.discountedPrice = product.price * 0.80;
+            break;
+
+        case "apparel":
+            product.discountedPrice = product.price * 0.85;
+            break;
+
+        case "groceries":
+        case "household":
+            product.discountedPrice = product.price * 0.90;
+            break;
+
+        default:
+            product.discountedPrice = product.price;
+            break;
+    }
+}
